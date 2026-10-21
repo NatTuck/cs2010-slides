@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="542" height="318" viewBox="0 0 542 318">
+<rect width="542" height="318" fill="#ffffff"/>
+<rect x="102.0" y="88.0" width="104.0" height="86.0" rx="0" fill="#ffffff" fill-opacity="1.0" stroke="#cbd5e1" stroke-width="1.2"/>
+<text x="154.0" y="139.0" text-anchor="middle" font-family="'DejaVu Sans', 'Noto Sans Symbols 2', 'Segoe UI Symbol', 'Apple Symbols', Verdana, sans-serif" font-size="21" fill="#4b5563">0</text>
+<rect x="206.0" y="88.0" width="104.0" height="86.0" rx="0" fill="#ffffff" fill-opacity="1.0" stroke="#cbd5e1" stroke-width="1.2"/>
+<text x="258.0" y="139.0" text-anchor="middle" font-family="'DejaVu Sans', 'Noto Sans Symbols 2', 'Segoe UI Symbol', 'Apple Symbols', Verdana, sans-serif" font-size="21" fill="#4b5563">1</text>
+<rect x="310.0" y="88.0" width="104.0" height="86.0" rx="0" fill="#ffffff" fill-opacity="1.0" stroke="#cbd5e1" stroke-width="1.2"/>
+<text x="362.0" y="139.0" text-anchor="middle" font-family="'DejaVu Sans', 'Noto Sans Symbols 2', 'Segoe UI Symbol', 'Apple Symbols', Verdana, sans-serif" font-size="21" fill="#4b5563">3</text>
+<rect x="414.0" y="88.0" width="104.0" height="86.0" rx="0" fill="#ffffff" fill-opacity="1.0" stroke="#cbd5e1" stroke-width="1.2"/>
+<text x="466.0" y="139.0" text-anchor="middle" font-family="'DejaVu Sans', 'Noto Sans Symbols 2', 'Segoe UI Symbol', 'Apple Symbols', Verdana, sans-serif" font-size="21" fill="#4b5563">2</text>
+<rect x="102.0" y="174.0" width="104.0" height="86.0" rx="0" fill="#ffffff" fill-opacity="1.0" stroke="#cbd5e1" stroke-width="1.2"/>
+<text x="154.0" y="225.0" text-anchor="middle" font-family="'DejaVu Sans', 'Noto Sans Symbols 2', 'Segoe UI Symbol', 'Apple Symbols', Verdana, sans-serif" font-size="21" fill="#4b5563">4</text>
+<rect x="206.0" y="174.0" width="104.0" height="86.0" rx="0" fill="#ffffff" fill-opacity="1.0" stroke="#cbd5e1" stroke-width="1.2"/>
+<text x="258.0" y="225.0" text-anchor="middle" font-family="'DejaVu Sans', 'Noto Sans Symbols 2', 'Segoe UI Symbol', 'Apple Symbols', Verdana, sans-serif" font-size="21" fill="#4b5563">5</text>
+<rect x="310.0" y="174.0" width="104.0" height="86.0" rx="0" fill="#ffffff" fill-opacity="1.0" stroke="#cbd5e1" stroke-width="1.2"/>
+<text x="362.0" y="225.0" text-anchor="middle" font-family="'DejaVu Sans', 'Noto Sans Symbols 2', 'Segoe UI Symbol', 'Apple Symbols', Verdana, sans-serif" font-size="21" fill="#4b5563">7</text>
+<rect x="414.0" y="174.0" width="104.0" height="86.0" rx="0" fill="#ffffff" fill-opacity="1.0" stroke="#cbd5e1" stroke-width="1.2"/>
+<text x="466.0" y="225.0" text-anchor="middle" font-family="'DejaVu Sans', 'Noto Sans Symbols 2', 'Segoe UI Symbol', 'Apple Symbols', Verdana, sans-serif" font-size="21" fill="#4b5563">6</text>
+<text x="154.0" y="76.0" text-anchor="middle" font-family="'DejaVu Sans', 'Noto Sans Symbols 2', 'Segoe UI Symbol', 'Apple Symbols', Verdana, sans-serif" font-size="15" fill="#4b5563" font-weight="700">00</text>
+<text x="258.0" y="76.0" text-anchor="middle" font-family="'DejaVu Sans', 'Noto Sans Symbols 2', 'Segoe UI Symbol', 'Apple Symbols', Verdana, sans-serif" font-size="15" fill="#4b5563" font-weight="700">01</text>
+<text x="362.0" y="76.0" text-anchor="middle" font-family="'DejaVu Sans', 'Noto Sans Symbols 2', 'Segoe UI Symbol', 'Apple Symbols', Verdana, sans-serif" font-size="15" fill="#4b5563" font-weight="700">11</text>
+<text x="466.0" y="76.0" text-anchor="middle" font-family="'DejaVu Sans', 'Noto Sans Symbols 2', 'Segoe UI Symbol', 'Apple Symbols', Verdana, sans-serif" font-size="15" fill="#4b5563" font-weight="700">10</text>
+<text x="310.0" y="48.0" text-anchor="middle" font-family="'DejaVu Sans', 'Noto Sans Symbols 2', 'Segoe UI Symbol', 'Apple Symbols', Verdana, sans-serif" font-size="14" fill="#6b7280" font-weight="700">BC</text>
+<text x="88.0" y="137.0" text-anchor="end" font-family="'DejaVu Sans', 'Noto Sans Symbols 2', 'Segoe UI Symbol', 'Apple Symbols', Verdana, sans-serif" font-size="15" fill="#4b5563" font-weight="700">0</text>
+<text x="88.0" y="223.0" text-anchor="end" font-family="'DejaVu Sans', 'Noto Sans Symbols 2', 'Segoe UI Symbol', 'Apple Symbols', Verdana, sans-serif" font-size="15" fill="#4b5563" font-weight="700">1</text>
+<text x="52.0" y="174.0" text-anchor="middle" font-family="'DejaVu Sans', 'Noto Sans Symbols 2', 'Segoe UI Symbol', 'Apple Symbols', Verdana, sans-serif" font-size="14" fill="#6b7280" font-weight="700" transform="rotate(-90 52.0 174.0)">A</text>
+<line x1="32.0" y1="80.0" x2="94.0" y2="32.0" stroke="#cbd5e1" stroke-width="1.2" stroke-linecap="round"/>
+<text x="24.0" y="306.0" text-anchor="start" font-family="'DejaVu Sans', 'Noto Sans Symbols 2', 'Segoe UI Symbol', 'Apple Symbols', Verdana, sans-serif" font-size="12.5" fill="#6b7280" font-style="italic">each cell is one row of the truth table, numbered by its value</text>
+</svg>

@@ -1,0 +1,12 @@
+# Quarto build output
+/.quarto/
+/_site/
+**/*_files/
+**/*.html
+**/*.quarto_ipynb
+
+# OS noise
+.DS_Store
+
+# nest runtime marker
+.nest

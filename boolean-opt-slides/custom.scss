@@ -1,0 +1,80 @@
+/*-- scss:defaults --*/
+
+// CS 2010 deck theme. Deliberately not the CS 4250 blue, so the two courses
+// do not look like one series on a projector.
+$presentation-heading-color: #14532d;
+$presentation-heading-font-weight: 700;
+$link-color: #14532d;
+$code-block-font-size: 0.72em;
+
+/*-- scss:rules --*/
+
+// The fonts themselves live in assets/fonts.css, linked with `css:` in the
+// deck's YAML. See the comment at the top of that file for why.
+
+.reveal h1,
+.reveal h2,
+.reveal h3 {
+  text-transform: none;
+}
+
+.reveal .slide-number {
+  color: #14532d;
+}
+
+.reveal .footer {
+  font-size: 0.5em;
+  color: #6b7280;
+}
+
+.reveal table {
+  font-size: 0.78em;
+}
+
+.reveal table th {
+  background: #f0fdf4;
+}
+
+.reveal table code {
+  background: none;
+  color: #12365f;
+}
+
+.reveal p code,
+.reveal li code,
+.reveal td code {
+  color: #12365f;
+  background: #eef2f7;
+  padding: 0.04em 0.22em;
+  border-radius: 3px;
+}
+
+// Boolean expressions are plain text, not code: give them their own line,
+// a little air, and a size that reads from the back of the room.
+.reveal .formula {
+  text-align: center;
+  font-size: 1.35em;
+  margin: 0.5em 0;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.reveal blockquote {
+  border-left: 4px solid #14532d;
+  padding-left: 1em;
+  font-style: italic;
+}
+
+// The two don't-care maps sit side by side; keep them close to the middle.
+.reveal .columns {
+  align-items: center;
+}
+
+.reveal .column p {
+  margin-bottom: 0.2em;
+}
+
+// Part-header slides are just a title and a line of orientation.
+.reveal h1 {
+  font-size: 2.1em;
+}

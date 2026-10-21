@@ -1,0 +1,22 @@
+project:
+  type: website
+  output-dir: _site
+  resources:
+    - "**/assets/**"
+
+website:
+  title: "CS 2010 — Computing Fundamentals"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - text: Boolean Optimization
+        menu:
+          - boolean-opt-slides/index.qmd
+          - boolean-opt-slides/refs.md
+  search: true
+
+format:
+  html:
+    theme: cosmo
+    toc: true

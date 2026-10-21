@@ -1,0 +1,13 @@
+---
+title: "CS 2010 Slides"
+---
+
+Lecture slides for CS 2010 — Computing Fundamentals.
+
+## Boolean Logic
+
+- [Boolean Logic, Optimized](boolean-opt-slides/index.qmd) — one lecture on
+  minimising circuits: what "smaller" means, K-maps, why exact minimisation is
+  hard, and the satisfiability problem.
+- [Boolean Optimization — handout](boolean-opt-slides/refs.md) — the one-page
+  version: identities, K-map rules, SAT vocabulary.

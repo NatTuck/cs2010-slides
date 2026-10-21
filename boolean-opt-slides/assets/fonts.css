@@ -1,0 +1,70 @@
+/* Deck fonts, bundled so that the built site needs no network at all.
+ *
+ * Paths here are relative to *this file*, which Quarto links from the deck
+ * HTML. Do not move the @font-face rules into custom.scss: Quarto compiles
+ * that into index_files/libs/revealjs/dist/theme/, and a relative url() there
+ * resolves inside that directory, not the deck's.
+ */
+
+@font-face {
+  font-family: "Deck Text";
+  font-weight: 400;
+  font-style: normal;
+  src: url("fonts/Lato-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Deck Text";
+  font-weight: 700;
+  font-style: normal;
+  src: url("fonts/Lato-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Deck Text";
+  font-weight: 400;
+  font-style: italic;
+  src: url("fonts/Lato-Italic.ttf") format("truetype");
+}
+
+/* Lato has no ∧ ∨ ¬ ⊕ ≥ Σ, so borrow exactly those code points from DejaVu
+ * Sans. unicode-range means the browser only reaches for DejaVu when it hits
+ * one of them, so prose stays Lato and symbols stay legible. */
+@font-face {
+  font-family: "Deck Text";
+  font-weight: 400;
+  font-style: normal;
+  src: url("fonts/DejaVuSans.ttf") format("truetype");
+  unicode-range: U+00AC, U+00B0, U+00B1, U+00B7, U+00D7, U+2010-2015,
+                 U+2020-2022, U+2032, U+2070-209F, U+2190-21FF, U+2200-22FF,
+                 U+2300-23FF, U+25A0-25FF, U+2713-2718, U+2A00-2AFF;
+}
+
+@font-face {
+  font-family: "Deck Mono";
+  font-weight: 400;
+  font-style: normal;
+  src: url("fonts/FiraCode-Regular.ttf") format("truetype");
+}
+
+.reveal,
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  font-family: "Deck Text", sans-serif;
+}
+
+.reveal code,
+.reveal pre,
+.reveal pre code,
+.reveal kbd {
+  font-family: "Deck Mono", monospace;
+}
+
+/* Fira Code's ligatures are a trap in a deck that shows `->` and `=>`. */
+.reveal code {
+  font-variant-ligatures: none;
+}
