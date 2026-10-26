@@ -1,0 +1,844 @@
+---
+title: "Seven Machines, One Computer"
+subtitle: "The notional machine, from bytes to a logic engine"
+author: "CS 2010 — Computing Fundamentals"
+date: today
+format:
+  revealjs:
+    theme: [default, custom.scss]
+    css: assets/fonts.css
+    html-math-method: plain
+    slide-number: true
+    incremental: false
+    controls: true
+    progress: true
+    hash: true
+    center: false
+    code-line-numbers: true
+    chalkboard: true
+    footer: "CS 2010 · Seven Machines"
+    preview-links: auto
+    fig-align: center
+    width: 1280
+    height: 800
+    margin: 0.08
+---
+
+## One Computer, Seven Machines {.smaller}
+
+A program runs on one computer. But the machine you *imagine* while you read it
+is a different machine at every layer — and that imagined machine is the one you
+actually program.
+
+> **Notional machine** (du Boulay, 1986): the computer you imagine while you read
+> a program — what things exist, what they do, and what happens next.
+
+::: {.fragment}
+It is not in the hardware. It is taught. And no error message will ever tell you
+that yours is wrong.
+:::
+
+::: {.notes}
+This is the whole lecture in one sentence: one computer, seven machines.
+
+Say the definition out loud and give them a moment. The key move is that the
+notional machine is a property of *the person*, not of the machine — which is
+why two people can read the same line of code and disagree about what it does,
+and why "it should work" is never an argument.
+
+The fragment is the reason this lecture is in a course that is not about
+programming: nobody will ever hand you a diagnostic that says "your mental model
+is broken". You get a wrong answer and no explanation, or an error message about
+a symptom rather than a cause.
+:::
+
+## The Ladder {.smaller}
+
+![](figs/fig-ladder.svg){height=470px}
+
+Each rung is implemented by the rung below it. Each rung up buys you expression
+and costs you visibility.
+
+::: {.notes}
+Point at the bottom and the top. The bottom rung is last Wednesday's lecture —
+gates, which is the lowest thing that computes and which has no notion of a step
+at all. The top is a search engine, which has no notion of a step either. The
+middle is where steps live, and that is not a coincidence.
+
+The two arrows are the two halves of the story: going up you can say more and
+see less. Going down, everything you can say is *implemented* by something
+simpler — which is the only reason the tower stands up.
+
+Tell them the shape of the lecture: one job, climbed one rung at a time, and at
+each rung we look at the same two questions — what is a step, and where does the
+state live?
+:::
+
+# Part 0 — The Machine That Is Actually There
+
+![](figs/fig-ladder-1.svg){height=300px}
+
+Rungs 1 and 2: the machine you can see all of.
+
+## The Computer Knows Three Moves {.smaller}
+
+![](figs/fig-fetch.svg){height=380px}
+
+One instruction can do one of three things:
+
+- arithmetic on two numbers,
+- load or store a word of memory,
+- change which instruction runs next.
+
+Then repeat, forever.
+
+::: {.notes}
+This is the only machine that is genuinely there. Everything above it is
+something we agree to pretend, and this slide is the baseline you measure the
+pretending against.
+
+The three moves are worth naming precisely because they are so few: no addition
+of a *list*, no "if this is even", no "call this function". Those are all
+compositions of the three.
+
+The program counter is the part people forget. A computer is not just a
+calculator that does the next thing — it holds the *address* of the next thing,
+and the ability to overwrite that address is what makes loops and choices
+possible.
+:::
+
+## One Job, All the Way Up {.smaller}
+
+The job: **sum the squares of the even numbers** in a list. For `[1 2 3 4]` the
+answer is **20**.
+
+| what the job needs | so every machine must provide |
+|---|---|
+| somewhere to keep a running total | storage that survives a step |
+| `x * x`, and `+` | arithmetic |
+| "only the even ones" | a way to choose |
+| "every element of the list" | a way to repeat |
+
+::: {.fragment}
+> Every rung has to be able to do this one job. That is what makes the rungs
+> comparable — and what makes their differences interesting.
+:::
+
+::: {.notes}
+Do not skip this slide; it is what stops the lecture from being a tour.
+
+Pick a job with all four ingredients, because a job with only arithmetic would
+not need most of what the upper rungs provide. Every language in the deck has to
+express a choice and a repetition, and the *way* it does that is the layer's
+personality.
+
+Ask the room for the answer for [1 2 3 4] before saying it: evens 2 and 4,
+squares 4 and 16, total 20. Small enough to check by hand all lecture, which is
+the point — every trace today ends at 20, and they can check every one.
+:::
+
+## Rung 1: One Instruction at a Time {.smaller}
+
+::: {.steps style="height:620px"}
+
+![](figs/fig-m1-01.svg)
+
+![](figs/fig-m1-02.svg){.fragment}
+
+![](figs/fig-m1-03.svg){.fragment}
+
+![](figs/fig-m1-04.svg){.fragment}
+
+![](figs/fig-m1-05.svg){.fragment}
+
+![](figs/fig-m1-06.svg){.fragment}
+
+![](figs/fig-m1-07.svg){.fragment}
+
+![](figs/fig-m1-08.svg){.fragment}
+
+![](figs/fig-m1-09.svg){.fragment}
+
+![](figs/fig-m1-10.svg){.fragment}
+
+![](figs/fig-m1-11.svg){.fragment}
+
+![](figs/fig-m1-12.svg){.fragment}
+
+![](figs/fig-m1-13.svg){.fragment}
+
+![](figs/fig-m1-14.svg){.fragment}
+
+![](figs/fig-m1-15.svg){.fragment}
+
+![](figs/fig-m1-16.svg){.fragment}
+
+![](figs/fig-m1-17.svg){.fragment}
+
+![](figs/fig-m1-18.svg){.fragment}
+
+![](figs/fig-m1-19.svg){.fragment}
+
+![](figs/fig-m1-20.svg){.fragment}
+
+![](figs/fig-m1-21.svg){.fragment}
+
+![](figs/fig-m1-22.svg){.fragment}
+
+![](figs/fig-m1-23.svg){.fragment}
+
+![](figs/fig-m1-24.svg){.fragment}
+
+![](figs/fig-m1-25.svg){.fragment}
+
+![](figs/fig-m1-26.svg){.fragment}
+
+![](figs/fig-m1-27.svg){.fragment}
+
+![](figs/fig-m1-28.svg){.fragment}
+
+![](figs/fig-m1-29.svg){.fragment}
+
+:::
+
+::: {.notes}
+This is a *model* machine, not x86: one instruction per address, word-addressed,
+data starting at 100 so program and data never collide. Say so, and say why —
+the point is the shape of the trace, not the encoding. On a real x86 one
+instruction is a few bytes, and `add %rbx,%rax` is `48 01 d8`.
+
+Click through it slowly, and after every frame ask the room "what changed?".
+The lit row is the instruction being executed, the amber register is what just
+changed, the blue cell is what was just read, the green cell is what was just
+written.
+
+Do not skip passes. The point of stepping all twenty-nine instructions is that
+the audience watches the jump at address 09 take them back to address 03, four
+times over, and sees the loop for what it is: two jumps and a counter. The
+header keeps count — "pass 2 of 4, step 9 of 29" — so nobody loses their place.
+
+Two frames carry the whole lecture. `AND R4, R3, 1` turns "is it even" into a
+single bit. `JUMPNZ R4, 8` turns "if it is odd, skip" into a jump. Choice is
+arithmetic plus a jump.
+
+Look at what is in the state: registers, memory, and the program counter.
+Nothing else exists. There is nowhere else for anything to be.
+:::
+
+## Rung 2: Names for the Numbers {.smaller}
+
+::: {.steps style="height:620px"}
+
+![](figs/fig-m2-01.svg)
+
+![](figs/fig-m2-02.svg){.fragment}
+
+![](figs/fig-m2-03.svg){.fragment}
+
+![](figs/fig-m2-04.svg){.fragment}
+
+![](figs/fig-m2-05.svg){.fragment}
+
+![](figs/fig-m2-06.svg){.fragment}
+
+![](figs/fig-m2-07.svg){.fragment}
+
+![](figs/fig-m2-08.svg){.fragment}
+
+![](figs/fig-m2-09.svg){.fragment}
+
+![](figs/fig-m2-10.svg){.fragment}
+
+![](figs/fig-m2-11.svg){.fragment}
+
+![](figs/fig-m2-12.svg){.fragment}
+
+![](figs/fig-m2-13.svg){.fragment}
+
+![](figs/fig-m2-14.svg){.fragment}
+
+![](figs/fig-m2-15.svg){.fragment}
+
+![](figs/fig-m2-16.svg){.fragment}
+
+![](figs/fig-m2-17.svg){.fragment}
+
+![](figs/fig-m2-18.svg){.fragment}
+
+![](figs/fig-m2-19.svg){.fragment}
+
+![](figs/fig-m2-20.svg){.fragment}
+
+![](figs/fig-m2-21.svg){.fragment}
+
+![](figs/fig-m2-22.svg){.fragment}
+
+![](figs/fig-m2-23.svg){.fragment}
+
+![](figs/fig-m2-24.svg){.fragment}
+
+![](figs/fig-m2-25.svg){.fragment}
+
+![](figs/fig-m2-26.svg){.fragment}
+
+![](figs/fig-m2-27.svg){.fragment}
+
+![](figs/fig-m2-28.svg){.fragment}
+
+![](figs/fig-m2-29.svg){.fragment}
+
+:::
+
+::: {.notes}
+Rung 2 is the cheapest rung and the one students most often overrate, so make
+the point sharply: these are the same twenty-nine frames as rung 1, with a label
+column added. Not one step changed — `make check-figs` asserts it.
+
+`again:` is address 03, `next:` is 08, `done:` is 11. That is the whole of
+rung 2: a name for an address, resolved away by the assembler before the
+machine ever sees it.
+
+Which is a useful lesson about abstraction generally: some layers add power and
+some only add legibility. This one only adds legibility — and it is still worth
+having, because address 03 tells you nothing and `again:` tells you everything.
+:::
+
+# Part I — Rung 3: The Stack
+
+![](figs/fig-ladder-3.svg){height=300px}
+
+Rung 3: the first thing in the machine that the hardware has never heard of.
+
+## Variables Are Boxes in a Frame {.smaller}
+
+::: {.steps style="height:560px"}
+
+![](figs/fig-c-01.svg)
+
+![](figs/fig-c-02.svg){.fragment}
+
+![](figs/fig-c-03.svg){.fragment}
+
+![](figs/fig-c-04.svg){.fragment}
+
+![](figs/fig-c-05.svg){.fragment}
+
+![](figs/fig-c-06.svg){.fragment}
+
+![](figs/fig-c-07.svg){.fragment}
+
+![](figs/fig-c-08.svg){.fragment}
+
+![](figs/fig-c-09.svg){.fragment}
+
+![](figs/fig-c-10.svg){.fragment}
+
+![](figs/fig-c-11.svg){.fragment}
+
+![](figs/fig-c-12.svg){.fragment}
+
+![](figs/fig-c-13.svg){.fragment}
+
+:::
+
+::: {.notes}
+Now the state has grown a column: the frame. `total` is not a register and not a
+name the hardware knows — it is four bytes at an address the compiler picked,
+0x7ffd10, and `i` is the four bytes after it.
+
+Click through and watch `total` change at 0x7ffd10. That address is the point:
+the frame is a *place*, and the values in it are just memory.
+
+The array is at 0xa0 and the frame is at 0x7ffd10, and the frame holds a pointer
+to the array — that is a lot of structure C invented and the chip knows nothing
+about.
+
+The trace is longer than rung 1's, which is honest: a higher-level language has
+more state to track, not less. That is the visibility you are paying.
+:::
+
+## The Frame Is Not in the Chip {.smaller}
+
+The hardware has registers and memory. It has no idea what a function call is.
+
+- A **frame** is a range of stack memory that the compiler decided to use for one
+  call's locals.
+- **Scope** is a rule about which frame a name resolves to — it exists in the
+  compiler, not in the machine.
+- A **return** is "put the result in a register, restore the stack pointer, jump".
+
+::: {.fragment}
+> Everything you can *see* in the trace is real memory. Everything that makes it
+> a *frame* is a convention someone maintains.
+:::
+
+::: {.notes}
+This is the first rung where the notional machine contains something the hardware
+has never heard of, so slow down here — the same move happens at every rung above.
+
+A frame is not a mysterious thing: it is a contiguous chunk of the stack, and
+the compiler emits instructions that keep a register (the frame pointer, or the
+stack pointer) pointing at it. If you delete those instructions, the frame stops
+existing. It is real in the sense that the bytes are real, and invented in the
+sense that the *grouping* is a decision.
+
+The practical payoff: this is why a stack overflow is a real thing that can
+happen, and why recursion has a cost per call, and why a local variable has an
+address. All three are consequences of rung 3's invention.
+:::
+
+# Part II — Rung 4: Rewriting the Text
+
+![](figs/fig-ladder-4.svg){height=300px}
+
+Rung 4: the state stops being memory and becomes the program itself.
+
+## A Step Can Be a Rewrite {.smaller}
+
+```scheme
+(define (sqs xs)
+  (cond ((null? xs) 0)
+        ((even? (car xs)) (+ (* (car xs) (car xs)) (sqs (cdr xs))))
+        (else (sqs (cdr xs)))))
+```
+
+The rule: to evaluate a call, **substitute the arguments into the body**, then
+keep going.
+
+::: {.formula}
+(+ (* 2 2) (* 3 3))  →  (+ 4 9)  →  13
+:::
+
+The syntax *is* the tree — you can see which subtree is being replaced.
+
+::: {.notes}
+This is the rung where the notional machine changes *kind*, so do not rush it.
+
+Read the expression out loud: "the sum of two squared and three squared". Then
+show that the parentheses already say that — the shape of the text is the shape
+of the computation. In `2*2 + 3*3` you have to know a precedence table to recover
+the tree; in `(+ (* 2 2) (* 3 3))` the tree is the text.
+
+The substitution rule, in one sentence: replace a call by its body with the
+arguments substituted. That is the whole evaluator. Everything else is which
+subexpression you choose to rewrite next.
+
+If they have never seen prefix notation: `(+ 1 2)` means "apply + to 1 and 2".
+That is 90 seconds and it is the only new syntax in the lecture.
+:::
+
+## The State Is the Program {.smaller}
+
+::: {.steps style="height:600px"}
+
+![](figs/fig-s-01.svg)
+
+![](figs/fig-s-02.svg){.fragment}
+
+![](figs/fig-s-03.svg){.fragment}
+
+![](figs/fig-s-04.svg){.fragment}
+
+![](figs/fig-s-05.svg){.fragment}
+
+![](figs/fig-s-06.svg){.fragment}
+
+![](figs/fig-s-07.svg){.fragment}
+
+![](figs/fig-s-08.svg){.fragment}
+
+![](figs/fig-s-09.svg){.fragment}
+
+:::
+
+::: {.notes}
+Look at what the state is now: the program text. There are no registers and no
+memory cells on this panel, because there is nothing to keep — the expression
+*is* the thing that changes.
+
+Each frame highlights the subexpression that is about to be rewritten, then
+shows what it becomes. That is the whole evaluator: pick a subexpression,
+replace it by its value, repeat. Leftmost-innermost, so the innermost expression
+on the left goes first.
+
+Read the highlights down the sequence: `(sqs ...)` unfolds, then `(* 2 2)`
+becomes 4, then the next `(sqs ...)` unfolds. The sum is built by the expression
+growing and then collapsing — nothing is ever stored.
+
+A literal trace would also show the `cond` clauses being tested one at a time.
+We skip those because they are four uninteresting rewrites per element; say so,
+so nobody thinks the panel is hiding a trick.
+:::
+
+## This Is Not What the Computer Does {.smaller}
+
+A real Scheme does not rewrite text. It keeps environments and a stack of
+pending operations, and it compiles to the same three machine moves as everything
+else.
+
+::: {.fragment}
+> The substitution trace is a **model**. And a model of the machine you should
+> imagine while reading a program is exactly what a notional machine is.
+:::
+
+::: {.notes}
+The most intellectually honest slide in the deck, and the one worth a minute.
+
+There is a real tension: the trace on the previous slide is *not* what a Scheme
+implementation does. It does not build new program texts; it keeps an
+environment and a continuation. So the trace is a fiction.
+
+It is a *useful* fiction, and it is the fiction SICP teaches, because it predicts
+every answer correctly and it is small enough to hold in your head. And that is
+the definition we started with: the machine you imagine, not the machine that is
+there.
+
+Say the general lesson: every rung in this ladder is a fiction that the rung
+below makes true. Rung 4's fiction is enforced by an interpreter at rung 1.
+:::
+
+# Part III — Rung 5: Values That Don't Change
+
+![](figs/fig-ladder-5.svg){height=300px}
+
+Rung 5: the same machine as rung 4, with a different idea about data.
+
+## Stop Overwriting, Start Transforming {.smaller}
+
+::: {.steps style="height:450px"}
+
+![](figs/fig-k-01.svg)
+
+![](figs/fig-k-02.svg){.fragment}
+
+![](figs/fig-k-03.svg){.fragment}
+
+![](figs/fig-k-04.svg){.fragment}
+
+:::
+
+::: {.notes}
+Clojure is a Scheme — same parentheses, same rewriting machine — so this rung is
+deliberately the *same* machine with a different idea about data.
+
+The code is three words: keep, square, add. Read the pipeline right to left,
+which is how it runs: filter the evens, map the square, reduce with +. The panel
+fills one stage at a time, and each stage builds a new value rather than
+changing an old one.
+
+Point out what is *absent*: no `total`, no `i`, no loop, and no line that
+changes anything. There is no variable being updated anywhere in this program.
+
+The cost: you can no longer predict what a line costs from the text alone.
+`filter` might be eager or lazy; `reduce` might be parallel. You traded
+visibility for expression, again.
+:::
+
+## The Same Machine, Less Typing {.smaller}
+
+| | rung 4 (Scheme) | rung 5 (Clojure) |
+|---|---|---|
+| the machine | rewrite the text | rewrite the text |
+| who does the recursion | you write it | `filter` / `map` / `reduce` |
+| lines in the trace | 10 | 4 |
+| anything overwritten | no | no |
+
+::: {.fragment}
+> Same machine, one level of thinking moved into the library. That is what a
+> library *is*: someone else's notional machine, ready to use.
+:::
+
+::: {.notes}
+Be precise: rung 5 is not a new kind of machine. The rewriting rule is identical.
+What changed is where the recursion lives — you moved it into three functions
+that somebody else wrote, and you no longer see it.
+
+That is worth generalising, because it is the main thing that happens as you go
+up the ladder: you stop writing the mechanism and start naming it. `filter` is a
+loop you did not write.
+
+The cost column is the honest one: you can no longer predict what a line costs
+from the text alone. `filter` might be eager or lazy; `reduce` might be
+parallel. You traded visibility for expression, again.
+:::
+
+# Part IV — Rung 6: The Machine With No Steps
+
+![](figs/fig-ladder-6.svg){height=300px}
+
+Rung 6: the top of the ladder, and the end of steps.
+
+## Declare, Don't Compute {.smaller}
+
+```clojure
+(run* [x] (membero x [1 2 3 4]) (pred x even?))
+;=> (2 4)
+```
+
+```clojure
+(run* [x] (membero x [1 2 3 4]) (pred x even?) (pred x #(> % 3)))
+;=> (4)
+```
+
+There is no loop. You state what must be true of the answer, and the machine
+finds values that make it true.
+
+::: {.fragment}
+> Adding a condition is not editing a program. It is adding a **fact**.
+:::
+
+::: {.notes}
+`run*` means "find every answer"; `x` is the variable we are asking about; each
+line inside is a *goal* that must hold. Read the second query as a sentence:
+"find an x that is in the list, is even, and is greater than 3".
+
+In rung 3 you would have edited the `if` to add that third condition. Here you
+appended a goal and the same machine answered a different question. That is the
+difference between *how* and *what*, and it is the whole point of the rung.
+
+Both answers are verified — these are real core.logic runs, not a sketch.
+:::
+
+## One Relation, Four Questions {.smaller}
+
+::: {.steps style="height:520px"}
+
+![](figs/fig-q-01.svg)
+
+![](figs/fig-q-02.svg){.fragment}
+
+![](figs/fig-q-03.svg){.fragment}
+
+![](figs/fig-q-04.svg){.fragment}
+
+:::
+
+::: {.notes}
+This is the payoff of the rung, so give it time. Write the relation on the board
+as a sentence: "l then s is o". Nothing about direction, nothing about which one
+you know.
+
+Then click through the four questions. The first is the one you would write by
+hand at rung 3. The second and third are the ones a loop *cannot* answer — to
+solve for the front of the list with a loop you would write a different
+function. The fourth returns every way to split the list, and there are five.
+
+Every answer on these panels came from a real run; the parentheses are what
+core.logic printed.
+:::
+
+## The Trace Is a Tree {.smaller}
+
+::: {.steps style="height:620px"}
+
+![](figs/fig-l-01.svg)
+
+![](figs/fig-l-02.svg){.fragment}
+
+![](figs/fig-l-03.svg){.fragment}
+
+![](figs/fig-l-04.svg){.fragment}
+
+![](figs/fig-l-05.svg){.fragment}
+
+![](figs/fig-l-06.svg){.fragment}
+
+![](figs/fig-l-07.svg){.fragment}
+
+![](figs/fig-l-08.svg){.fragment}
+
+![](figs/fig-l-09.svg){.fragment}
+
+![](figs/fig-l-10.svg){.fragment}
+
+![](figs/fig-l-11.svg){.fragment}
+
+:::
+
+::: {.notes}
+Look at the shape. Every rung below produced a *line* — a sequence of steps.
+This rung produces a tree, because the machine has to try something, fail, and
+come back.
+
+Step through it: each level tries clause 1 (the left list is empty, so we have
+an answer) and then clause 2 (the left list has a head, so recurse on the tail).
+The staircase is the recursion; the answers are the leaves.
+
+The last frame is the payoff: the final clause 2 fails because there is no head
+left to take. That failure is not an error — it is how the search knows to stop.
+
+The numbers are the search order, and the answers come out in that order. That
+is a general fact about depth-first search, and it is why the printed order of
+`(run* ...)` is informative.
+
+This figure is drawn from the engine's own tree, and the engine is checked
+against a real core.logic run, so the picture cannot drift from the truth.
+:::
+
+## What "Running" Means Here {.smaller}
+
+There is no next instruction. The state is a **substitution** (what we have
+learned so far) plus a **frontier** (what is left to try).
+
+- **unify** — make two terms equal by binding variables
+- **backtrack** — when a goal fails, undo the last choice and try the next
+
+::: {.fragment}
+The engine underneath is a search. That is the same machine as last week's SAT
+solver — and it is what is running inside a package manager deciding whether your
+dependencies can be installed.
+:::
+
+::: {.notes}
+The three words that carry the whole rung: substitution, unification, backtracking.
+
+Contrast the state with the rungs below. Rung 1's state was registers and memory.
+Rung 3's state was a stack of frames. Rung 4's state was the program text. Now
+the state is *what we know* plus *what we have not tried yet* — and there is no
+"where" at all.
+
+Close the loop with last week: the boolean deck ended on SAT, a search for an
+assignment that makes a formula true. This rung is that search, wearing
+parentheses. Nobody wrote a loop; somebody wrote a search engine and a
+description of the answer.
+:::
+
+# Part V — Above and Below
+
+![](figs/fig-ladder.svg){height=300px}
+
+Where this leaves you, and what is above.
+
+## Every Abstraction Leaks {.smaller}
+
+| what you see | what is really happening |
+|---|---|
+| `0.1 + 0.2` gives `0.30000000000000004` | rung 1: floats are not decimals |
+| a stack overflow | rung 3: the frame stack is finite and real |
+| "this one line is slow" | rung 1: it is still a loop, whatever it is called |
+| a lazy sequence realising at a strange moment | rung 5: the pipeline is not free |
+
+::: {.fragment}
+> A leak is the layer below showing through. When something makes no sense,
+> ask which rung you are actually standing on.
+:::
+
+::: {.notes}
+You already met the first one in week 3, in the numbers lecture: 0.1 and 0.2 are
+not representable in binary floating point, so their sum is not 0.3. That is not
+a bug in the language; it is rung 1 showing through rung 4.
+
+The practical advice is the useful part: when a program surprises you, the
+question to ask is not "why is the computer wrong" but "which layer am I
+actually standing on, and what does that layer promise". Most confusing bugs are
+a layer boundary, not a mistake.
+
+This is also why the notional machine matters: a leak is what it feels like when
+your imagined machine and the real one disagree.
+:::
+
+## You Already Use Three Declarative Machines {.smaller}
+
+| machine | you say | it works out |
+|---|---|---|
+| **SQL** | which rows you want | how to find them |
+| **a spreadsheet** | a formula per cell | what order to recompute |
+| **an LLM prompt** | what you want, in English | the steps (sometimes) |
+
+None of these asks you for a loop. All three are the same move as rung 6: state
+the answer, let the machine search.
+
+::: {.notes}
+This is where the lecture stops being about programming languages and becomes
+about their lives. Most students have written a spreadsheet formula and many have
+prompted a model; almost none have written SQL, so explain it in one line.
+
+The spreadsheet is the best example to dwell on, because they have all felt the
+dependency graph: change one cell and the whole sheet recomputes in an order you
+never specified. That is a declarative machine with a search underneath it.
+
+The LLM is the honest top of the ladder, and the reason November's project looks
+the way it does: you describe the result and something else decides the steps.
+Say that we will come back to it, and that it is the least reliable machine on
+the list — for exactly the reason that it is the most hidden.
+:::
+
+## The Language You Will Actually Write {.smaller}
+
+We are not going to write six languages. You will write one: **JavaScript**, or
+**TypeScript**.
+
+It is a synthesis of the rungs you just climbed:
+
+- frames and locals — rung 3
+- objects on a heap, garbage collected — rung 4
+- `map`, `filter`, `reduce` on arrays — rung 5
+- and an event loop, which is a search you never see
+
+::: {.fragment}
+> The point of the ladder was never to learn six languages. It was to be able to
+> see the parts of the one you use.
+:::
+
+::: {.notes}
+This is the payoff for a course that is not about programming: they will write
+one language, and now they can look at it and see which rung each feature came
+from.
+
+Do it concretely on the slide: a `for` loop is rung 3. An object you pass around
+and mutate is rung 4, and the aliasing surprises they will hit in the lab are
+rung 4 leaks. `xs.filter(...).map(...)` is rung 5 and they will meet it in the
+first week of real code. The event loop is the interesting one — it is a frontier
+of pending work, which is rung 6's shape, and it is why `await` exists.
+
+Do not teach any of it. Just point.
+:::
+
+## The Ladder Is a Loop {.smaller}
+
+The bottom rung is last Wednesday: gates, which compute with no notion of a step.
+
+The top rung is last Wednesday too: a search for an assignment, which is the SAT
+problem the boolean lecture ended on.
+
+::: {.fragment}
+> Seven machines, one computer. And the course you are in is the ladder: bits,
+> then files, then gates, then instructions, then languages — and now you know
+> what is above languages.
+:::
+
+::: {.notes}
+The structural joke worth landing: we started at gates and ended at a search, and
+last week's lecture also started at gates and ended at a search. The middle is
+what we climbed today.
+
+Point at the whole course on this slide. Weeks 2 and 3 were rung 1 seen as data:
+bytes, numbers, text, files. Week 8 was rung 0. Today was rungs 1 to 6. The
+vibe-coding project is the rung above rung 6.
+
+The one sentence to leave in the room: the tower stands because every layer is
+implemented by the one below it — and it is worth knowing which floor you are on.
+:::
+
+## Five Things to Remember {.smaller}
+
+1. A program is one thing. The machine you *imagine* while reading it is another,
+   and it changes with the layer.
+2. Each layer is implemented by the layer below it. That is the only reason the
+   tower stands.
+3. Going up buys expression and costs visibility. Every rung pays that price.
+4. The state moves: memory → the program text → a search frontier.
+5. The trace changes shape: a line, then a tree.
+
+::: {.notes}
+If they remember one thing, make it number 3, because it is the one that pays off
+outside this course: any time a tool makes something easier, ask what it just
+made invisible.
+
+Number 4 is the summary of the six traces they just watched, and it is worth
+saying that they have now seen the same job evaluated six different ways — and
+that every one of them was correct.
+
+For the lab and Wednesday: we will write JavaScript, and the question to keep
+asking is "which machine am I imagining right now".
+:::

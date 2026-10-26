@@ -14,6 +14,9 @@ website:
         menu:
           - boolean-opt-slides/index.qmd
           - boolean-opt-slides/refs.md
+      - text: Seven Machines
+        menu:
+          - notional-machines-slides/index.qmd
   search: true
 
 format:

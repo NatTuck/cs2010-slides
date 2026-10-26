@@ -1,0 +1,107 @@
+/*-- scss:defaults --*/
+
+// CS 2010 deck theme. Deliberately not the CS 4250 blue, so the two courses
+// do not look like one series on a projector.
+$presentation-heading-color: #14532d;
+$presentation-heading-font-weight: 700;
+$link-color: #14532d;
+$code-block-font-size: 0.66em;
+
+/*-- scss:rules --*/
+
+// The fonts themselves live in assets/fonts.css, linked with `css:` in the
+// deck's YAML. See the comment at the top of that file for why.
+
+.reveal h1,
+.reveal h2,
+.reveal h3 {
+  text-transform: none;
+}
+
+.reveal .slide-number {
+  color: #14532d;
+}
+
+.reveal .footer {
+  font-size: 0.5em;
+  color: #6b7280;
+}
+
+.reveal table {
+  font-size: 0.72em;
+}
+
+.reveal table th {
+  background: #f0fdf4;
+}
+
+.reveal table code {
+  background: none;
+  color: #12365f;
+}
+
+.reveal p code,
+.reveal li code,
+.reveal td code {
+  color: #12365f;
+  background: #eef2f7;
+  padding: 0.04em 0.22em;
+  border-radius: 3px;
+}
+
+.reveal pre code {
+  max-height: 520px;
+}
+
+// The step frames. Every frame is the same size, so they are stacked on top of
+// each other and revealed one at a time: the panel never moves between steps,
+// and the height comes from the inline style on the container.
+.reveal .steps {
+  position: relative;
+  width: 100%;
+  margin: 0.1em auto 0 auto;
+}
+
+.reveal .steps p {
+  margin: 0;
+  line-height: 0;
+}
+
+.reveal .steps img {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100%;
+  width: auto;
+  max-width: none;
+  margin: 0;
+}
+
+.reveal blockquote {
+  border-left: 4px solid #14532d;
+  padding-left: 1em;
+  font-style: italic;
+}
+
+.reveal .columns {
+  align-items: center;
+}
+
+.reveal .column p {
+  margin-bottom: 0.2em;
+}
+
+// Part-header slides are just a title and a line of orientation.
+.reveal h1 {
+  font-size: 2.1em;
+}
+
+// A one-line claim, centred, for the sentence a slide exists to say.
+.reveal .claim {
+  text-align: center;
+  font-size: 1.3em;
+  margin: 0.7em 0;
+  color: #14532d;
+  font-weight: 700;
+}

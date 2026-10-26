@@ -11,3 +11,9 @@ Lecture slides for CS 2010 — Computing Fundamentals.
   hard, and the satisfiability problem.
 - [Boolean Optimization — handout](boolean-opt-slides/refs.md) — the one-page
   version: identities, K-map rules, SAT vocabulary.
+
+## Programming
+
+- [Seven Machines, One Computer](notional-machines-slides/index.qmd) — one
+  lecture on the notional machine: the same job evaluated six times, from
+  machine code up to a Clojure logic engine, and what changes at each layer.

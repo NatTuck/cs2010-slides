@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="500" viewBox="0 0 1040 500">
+<defs><marker id="arw_111827" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#111827"/></marker><marker id="arw_14532d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#14532d"/></marker><marker id="arw_b45309" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b45309"/></marker><marker id="arw_b91c1c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="arw_1d4ed8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="arw_6b7280" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/></marker><marker id="arw_4b5563" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#4b5563"/></marker></defs>
+<rect width="1040" height="500" fill="#ffffff"/>
+<text x="24.0" y="32.0" text-anchor="start" font-family="'DejaVu Sans', 'Noto Sans Symbols 2', 'Segoe UI Symbol', 'Apple Symbols', Verdana, sans-serif" font-size="15" fill="#14532d" font-weight="700">rung 3  C</text>
+<text x="1016.0" y="32.0" text-anchor="end" font-family="'DejaVu Sans', 'Noto Sans Symbols 2', 'Segoe UI Symbol', 'Apple Symbols', Verdana, sans-serif" font-size="15" fill="#6b7280">pass 2 of 4   ·   step 4 of 13</text>
+<rect x="24.0" y="52.0" width="470.0" height="33.0" rx="3" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+<text x="36.0" y="75.0" text-anchor="start" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="15" fill="#4b5563">int total = 0;</text>
+<rect x="24.0" y="90.0" width="470.0" height="33.0" rx="3" fill="#14532d" stroke="#14532d" stroke-width="1.8"/>
+<text x="36.0" y="113.0" text-anchor="start" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="15" fill="#ffffff">for (int i = 0; i &lt; n; i++)</text>
+<rect x="24.0" y="128.0" width="470.0" height="33.0" rx="3" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+<text x="36.0" y="151.0" text-anchor="start" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="15" fill="#4b5563">if (xs[i] % 2 == 0)</text>
+<rect x="24.0" y="166.0" width="470.0" height="33.0" rx="3" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+<text x="36.0" y="189.0" text-anchor="start" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="15" fill="#4b5563">total += xs[i] * xs[i];</text>
+<rect x="24.0" y="204.0" width="470.0" height="33.0" rx="3" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+<text x="36.0" y="227.0" text-anchor="start" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="15" fill="#4b5563">return total;</text>
+<rect x="540.0" y="50.0" width="470.0" height="208.0" rx="6" fill="#ffffff" stroke="#14532d" stroke-width="2"/>
+<text x="556.0" y="78.0" text-anchor="start" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="15" fill="#14532d" font-weight="700">frame at 0x7ffd10</text>
+<rect x="554.0" y="94.0" width="442.0" height="34.0" rx="4" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+<text x="568.0" y="117.0" text-anchor="start" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="15" fill="#111827">total</text>
+<text x="690.0" y="117.0" text-anchor="start" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="13" fill="#6b7280">0x7ffd10</text>
+<text x="970.0" y="117.0" text-anchor="end" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="17" fill="#0b1220" font-weight="700">0</text>
+<rect x="554.0" y="134.0" width="442.0" height="34.0" rx="4" fill="#fef3c7" stroke="#b45309" stroke-width="1.6"/>
+<text x="568.0" y="157.0" text-anchor="start" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="15" fill="#b45309" font-weight="700">i</text>
+<text x="690.0" y="157.0" text-anchor="start" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="13" fill="#6b7280">0x7ffd14</text>
+<text x="970.0" y="157.0" text-anchor="end" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="17" fill="#b45309" font-weight="700">1</text>
+<rect x="554.0" y="174.0" width="442.0" height="34.0" rx="4" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+<text x="568.0" y="197.0" text-anchor="start" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="15" fill="#111827">n</text>
+<text x="690.0" y="197.0" text-anchor="start" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="13" fill="#6b7280">0x7ffd18</text>
+<text x="970.0" y="197.0" text-anchor="end" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="17" fill="#0b1220" font-weight="700">4</text>
+<rect x="554.0" y="214.0" width="442.0" height="34.0" rx="4" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+<text x="568.0" y="237.0" text-anchor="start" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="15" fill="#111827">xs</text>
+<text x="690.0" y="237.0" text-anchor="start" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="13" fill="#6b7280">0x7ffd20</text>
+<text x="970.0" y="237.0" text-anchor="end" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="17" fill="#0b1220" font-weight="700">0xa0</text>
+<text x="540.0" y="306.0" text-anchor="start" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="13" fill="#6b7280">the array xs, at 0xa0</text>
+<rect x="540.0" y="318.0" width="110.0" height="58.0" rx="5" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.2"/>
+<text x="595.0" y="339.0" text-anchor="middle" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="11" fill="#6b7280">0xa0</text>
+<text x="595.0" y="366.0" text-anchor="middle" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="21" fill="#0b1220" font-weight="700">1</text>
+<rect x="658.0" y="318.0" width="110.0" height="58.0" rx="5" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.2"/>
+<text x="713.0" y="339.0" text-anchor="middle" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="11" fill="#6b7280">0xa4</text>
+<text x="713.0" y="366.0" text-anchor="middle" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="21" fill="#0b1220" font-weight="700">2</text>
+<rect x="776.0" y="318.0" width="110.0" height="58.0" rx="5" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.2"/>
+<text x="831.0" y="339.0" text-anchor="middle" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="11" fill="#6b7280">0xa8</text>
+<text x="831.0" y="366.0" text-anchor="middle" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="21" fill="#0b1220" font-weight="700">3</text>
+<rect x="894.0" y="318.0" width="110.0" height="58.0" rx="5" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.2"/>
+<text x="949.0" y="339.0" text-anchor="middle" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="11" fill="#6b7280">0xac</text>
+<text x="949.0" y="366.0" text-anchor="middle" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="21" fill="#0b1220" font-weight="700">4</text>
+<rect x="24.0" y="290.0" width="470.0" height="45.0" rx="6" fill="#fbfdfb" stroke="#14532d" stroke-width="1.4"/>
+<rect x="24.0" y="290.0" width="6.0" height="45.0" rx="2" fill="#14532d" stroke="#14532d" stroke-width="0"/>
+<text x="46.0" y="316.0" text-anchor="start" font-family="'DejaVu Sans', 'Noto Sans Symbols 2', 'Segoe UI Symbol', 'Apple Symbols', Verdana, sans-serif" font-size="16" fill="#111827">loop test: i = 1, n = 4, so go round</text>
+</svg>

@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="560" viewBox="0 0 1040 560">
+<defs><marker id="arw_111827" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#111827"/></marker><marker id="arw_14532d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#14532d"/></marker><marker id="arw_b45309" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b45309"/></marker><marker id="arw_b91c1c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="arw_1d4ed8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="arw_6b7280" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/></marker><marker id="arw_4b5563" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#4b5563"/></marker></defs>
+<rect width="1040" height="560" fill="#ffffff"/>
+<text x="24.0" y="32.0" text-anchor="start" font-family="'DejaVu Sans', 'Noto Sans Symbols 2', 'Segoe UI Symbol', 'Apple Symbols', Verdana, sans-serif" font-size="15" fill="#14532d" font-weight="700">rung 1  machine code</text>
+<text x="1016.0" y="32.0" text-anchor="end" font-family="'DejaVu Sans', 'Noto Sans Symbols 2', 'Segoe UI Symbol', 'Apple Symbols', Verdana, sans-serif" font-size="15" fill="#6b7280">pass 2 of 4   ·   step 11 of 29</text>
+<rect x="24.0" y="50.0" width="430.0" height="35.0" rx="3" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+<text x="36.0" y="75.0" text-anchor="start" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="14" fill="#cbd5e1">00</text>
+<text x="72.0" y="75.0" text-anchor="start" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="14" fill="#4b5563">CONST R0, 0</text>
+<rect x="24.0" y="90.0" width="430.0" height="35.0" rx="3" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+<text x="36.0" y="115.0" text-anchor="start" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="14" fill="#cbd5e1">01</text>
+<text x="72.0" y="115.0" text-anchor="start" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="14" fill="#4b5563">CONST R1, 0</text>
+<rect x="24.0" y="130.0" width="430.0" height="35.0" rx="3" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+<text x="36.0" y="155.0" text-anchor="start" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="14" fill="#cbd5e1">02</text>
+<text x="72.0" y="155.0" text-anchor="start" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="14" fill="#4b5563">CONST R2, 4</text>
+<rect x="24.0" y="170.0" width="430.0" height="35.0" rx="3" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+<text x="36.0" y="195.0" text-anchor="start" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="14" fill="#cbd5e1">03</text>
+<text x="72.0" y="195.0" text-anchor="start" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="14" fill="#4b5563">LOAD R3, [R0+100]</text>
+<rect x="24.0" y="210.0" width="430.0" height="35.0" rx="3" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+<text x="36.0" y="235.0" text-anchor="start" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="14" fill="#cbd5e1">04</text>
+<text x="72.0" y="235.0" text-anchor="start" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="14" fill="#4b5563">AND R4, R3, 1</text>
+<rect x="24.0" y="250.0" width="430.0" height="35.0" rx="3" fill="#14532d" stroke="#14532d" stroke-width="1.8"/>
+<text x="36.0" y="275.0" text-anchor="start" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="14" fill="#a7f3d0">05</text>
+<text x="72.0" y="275.0" text-anchor="start" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="14" fill="#ffffff">JUMPNZ R4, 8</text>
+<rect x="24.0" y="290.0" width="430.0" height="35.0" rx="3" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+<text x="36.0" y="315.0" text-anchor="start" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="14" fill="#cbd5e1">06</text>
+<text x="72.0" y="315.0" text-anchor="start" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="14" fill="#111827">MUL R5, R3, R3</text>
+<rect x="24.0" y="330.0" width="430.0" height="35.0" rx="3" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+<text x="36.0" y="355.0" text-anchor="start" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="14" fill="#cbd5e1">07</text>
+<text x="72.0" y="355.0" text-anchor="start" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="14" fill="#111827">ADD R1, R1, R5</text>
+<rect x="24.0" y="370.0" width="430.0" height="35.0" rx="3" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+<text x="36.0" y="395.0" text-anchor="start" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="14" fill="#cbd5e1">08</text>
+<text x="72.0" y="395.0" text-anchor="start" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="14" fill="#4b5563">ADD R0, R0, 1</text>
+<rect x="24.0" y="410.0" width="430.0" height="35.0" rx="3" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+<text x="36.0" y="435.0" text-anchor="start" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="14" fill="#cbd5e1">09</text>
+<text x="72.0" y="435.0" text-anchor="start" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="14" fill="#4b5563">JUMPLT R0, R2, 3</text>
+<rect x="24.0" y="450.0" width="430.0" height="35.0" rx="3" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+<text x="36.0" y="475.0" text-anchor="start" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="14" fill="#cbd5e1">10</text>
+<text x="72.0" y="475.0" text-anchor="start" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="14" fill="#111827">STORE [99], R1</text>
+<rect x="24.0" y="490.0" width="430.0" height="35.0" rx="3" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+<text x="36.0" y="515.0" text-anchor="start" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="14" fill="#cbd5e1">11</text>
+<text x="72.0" y="515.0" text-anchor="start" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="14" fill="#111827">HALT</text>
+<text x="480.0" y="86.0" text-anchor="start" font-family="'DejaVu Sans', 'Noto Sans Symbols 2', 'Segoe UI Symbol', 'Apple Symbols', Verdana, sans-serif" font-size="13" fill="#6b7280">registers</text>
+<rect x="480.0" y="96.0" width="84.0" height="64.0" rx="5" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.2"/>
+<text x="522.0" y="118.0" text-anchor="middle" font-family="'DejaVu Sans', 'Noto Sans Symbols 2', 'Segoe UI Symbol', 'Apple Symbols', Verdana, sans-serif" font-size="12" fill="#6b7280" font-weight="700">R0</text>
+<text x="522.0" y="148.0" text-anchor="middle" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="24" fill="#0b1220" font-weight="700">1</text>
+<rect x="572.0" y="96.0" width="84.0" height="64.0" rx="5" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.2"/>
+<text x="614.0" y="118.0" text-anchor="middle" font-family="'DejaVu Sans', 'Noto Sans Symbols 2', 'Segoe UI Symbol', 'Apple Symbols', Verdana, sans-serif" font-size="12" fill="#6b7280" font-weight="700">R1</text>
+<text x="614.0" y="148.0" text-anchor="middle" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="24" fill="#0b1220" font-weight="700">0</text>
+<rect x="664.0" y="96.0" width="84.0" height="64.0" rx="5" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.2"/>
+<text x="706.0" y="118.0" text-anchor="middle" font-family="'DejaVu Sans', 'Noto Sans Symbols 2', 'Segoe UI Symbol', 'Apple Symbols', Verdana, sans-serif" font-size="12" fill="#6b7280" font-weight="700">R2</text>
+<text x="706.0" y="148.0" text-anchor="middle" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="24" fill="#0b1220" font-weight="700">4</text>
+<rect x="756.0" y="96.0" width="84.0" height="64.0" rx="5" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.2"/>
+<text x="798.0" y="118.0" text-anchor="middle" font-family="'DejaVu Sans', 'Noto Sans Symbols 2', 'Segoe UI Symbol', 'Apple Symbols', Verdana, sans-serif" font-size="12" fill="#6b7280" font-weight="700">R3</text>
+<text x="798.0" y="148.0" text-anchor="middle" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="24" fill="#0b1220" font-weight="700">2</text>
+<rect x="848.0" y="96.0" width="84.0" height="64.0" rx="5" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.2"/>
+<text x="890.0" y="118.0" text-anchor="middle" font-family="'DejaVu Sans', 'Noto Sans Symbols 2', 'Segoe UI Symbol', 'Apple Symbols', Verdana, sans-serif" font-size="12" fill="#6b7280" font-weight="700">R4</text>
+<text x="890.0" y="148.0" text-anchor="middle" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="24" fill="#0b1220" font-weight="700">0</text>
+<rect x="940.0" y="96.0" width="84.0" height="64.0" rx="5" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.2"/>
+<text x="982.0" y="118.0" text-anchor="middle" font-family="'DejaVu Sans', 'Noto Sans Symbols 2', 'Segoe UI Symbol', 'Apple Symbols', Verdana, sans-serif" font-size="12" fill="#6b7280" font-weight="700">R5</text>
+<text x="982.0" y="148.0" text-anchor="middle" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="24" fill="#0b1220" font-weight="700">0</text>
+<text x="480.0" y="202.0" text-anchor="start" font-family="'DejaVu Sans', 'Noto Sans Symbols 2', 'Segoe UI Symbol', 'Apple Symbols', Verdana, sans-serif" font-size="13" fill="#6b7280">memory</text>
+<rect x="480.0" y="212.0" width="96.0" height="58.0" rx="5" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.2"/>
+<text x="528.0" y="233.0" text-anchor="middle" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="11" fill="#6b7280">mem[99]</text>
+<text x="528.0" y="259.0" text-anchor="middle" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="21" fill="#6b7280" font-weight="700">0</text>
+<rect x="584.0" y="212.0" width="96.0" height="58.0" rx="5" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.2"/>
+<text x="632.0" y="233.0" text-anchor="middle" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="11" fill="#6b7280">mem[100]</text>
+<text x="632.0" y="259.0" text-anchor="middle" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="21" fill="#6b7280" font-weight="700">1</text>
+<rect x="688.0" y="212.0" width="96.0" height="58.0" rx="5" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.2"/>
+<text x="736.0" y="233.0" text-anchor="middle" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="11" fill="#6b7280">mem[101]</text>
+<text x="736.0" y="259.0" text-anchor="middle" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="21" fill="#6b7280" font-weight="700">2</text>
+<rect x="792.0" y="212.0" width="96.0" height="58.0" rx="5" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.2"/>
+<text x="840.0" y="233.0" text-anchor="middle" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="11" fill="#6b7280">mem[102]</text>
+<text x="840.0" y="259.0" text-anchor="middle" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="21" fill="#6b7280" font-weight="700">3</text>
+<rect x="896.0" y="212.0" width="96.0" height="58.0" rx="5" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.2"/>
+<text x="944.0" y="233.0" text-anchor="middle" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="11" fill="#6b7280">mem[103]</text>
+<text x="944.0" y="259.0" text-anchor="middle" font-family="'Fira Code', 'DejaVu Sans Mono', 'Courier New', monospace" font-size="21" fill="#6b7280" font-weight="700">4</text>
+<rect x="480.0" y="310.0" width="530.0" height="45.0" rx="6" fill="#fbfdfb" stroke="#14532d" stroke-width="1.4"/>
+<rect x="480.0" y="310.0" width="6.0" height="45.0" rx="2" fill="#14532d" stroke="#14532d" stroke-width="0"/>
+<text x="502.0" y="336.0" text-anchor="start" font-family="'DejaVu Sans', 'Noto Sans Symbols 2', 'Segoe UI Symbol', 'Apple Symbols', Verdana, sans-serif" font-size="16" fill="#111827">R4 is 0, so fall through</text>
+</svg>

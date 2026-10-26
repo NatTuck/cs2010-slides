@@ -11,6 +11,7 @@ deployed to GitHub Pages.
 | Deck | Directory |
 |---|---|
 | [Boolean Logic, Optimized](boolean-opt-slides/index.qmd) | `boolean-opt-slides/` |
+| [Seven Machines, One Computer](notional-machines-slides/index.qmd) | `notional-machines-slides/` |
 
 Each deck is a `revealjs` document in its own directory, with a `custom.scss`
 theme, a `figs/` directory, and a `Makefile` for `preview`, `render`, `figs`
@@ -34,6 +35,25 @@ Both write standalone SVG. Text in the SVGs uses a font *stack* (DejaVu Sans,
 Noto Sans Symbols 2, Segoe UI Symbol, Apple Symbols) because an SVG loaded as an
 `<img>` cannot use the page's webfonts; that stack is what keeps `∧ ∨ ¬` from
 rendering as boxes on a student's laptop.
+
+The programming deck generates its **step-evaluation traces** the same way:
+
+- `notional-machines-slides/figs/steps.py` runs five small machines over one
+  running example — a fetch-execute simulator, a frame simulator, a
+  substitution evaluator, a pipeline, and a unification engine. `make check-figs`
+  asserts that every layer arrives at the same answer, that the assembly trace is
+  the machine-code trace step for step, and that the search model reproduces the
+  answer a real `core.logic` run gave.
+- `notional-machines-slides/figs/panels.py` turns each step of those machines
+  into one SVG *frame* — the current instruction lit, the changed register
+  amber, the read cell blue, the caption saying what just happened. The deck
+  stacks the frames of a rung in one box and reveals them a click at a time, so
+  the audience watches the state change instead of reading a table. `.steps` in
+  the theme absolutely positions them, which is why the panel never moves
+  between steps.
+- `notional-machines-slides/figs/makefigs.py` draws the ladder (one variant per
+  rung, so each part header shows where you are), the fetch-execute cycle, and
+  the whole search tree.
 
 ## Fonts and offline delivery
 
