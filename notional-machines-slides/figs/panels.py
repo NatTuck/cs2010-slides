@@ -11,6 +11,7 @@ makefigs.py, which already has the repo's SVG idiom.
 """
 
 import os
+import re
 
 import makefigs as F
 import steps
@@ -195,38 +196,59 @@ def c_frames():
 
 # ================================================================== rung 4 ==
 
+def wrap_text(text, per_line):
+    """Wrap on spaces, remembering where each line starts in the original."""
+    lines, cur, cur_start, pos = [], [], 0, 0
+    for word in text.split(" "):
+        if not cur:
+            cur, cur_start = [word], pos
+        elif len(" ".join(cur + [word])) <= per_line:
+            cur.append(word)
+        else:
+            lines.append((" ".join(cur), cur_start))
+            cur, cur_start = [word], pos
+        pos += len(word) + 1
+    if cur:
+        lines.append((" ".join(cur), cur_start))
+    return lines
+
+
 def scheme_frames():
+    """The whole substitution, one rewrite per frame: 42 of them.
+
+    Each frame shows the program text as it stands, with the part about to be
+    rewritten highlighted.  Nothing is collapsed -- the clause tests, the car
+    and cdr, and both occurrences of (car xs) all get their own step.
+    """
     snaps = steps.scheme_steps()
     for i, s in enumerate(snaps, 1):
         body = []
-        PH = 520
+        PH = 400
         header(body, "rung 4  Scheme", i, len(snaps))
-        body.append(F.txt(W / 2, 100, "the program text, now", 14, "middle", GRAY))
+        body.append(F.txt(W / 2, 92, "the program text, now", 14, "middle", GRAY))
 
-        size = 34
-        text = s["before"]
+        size = 22
         cw = size * CW
-        x0 = (W - len(text) * cw) / 2
-        idx = text.find(s["redex"]) if s["redex"] else -1
-        if idx < 0:
-            body.append(F.txt(x0, 178, text, size, "start", INK, mono=True))
-        else:
-            hx = x0 + idx * cw
-            body.append(F.rect(hx - 5, 178 - 30, len(s["redex"]) * cw + 7, 44, AMBER_W, AMBER, 1.6, rx=4))
-            body.append(F.txt(x0, 178, text[:idx], size, "start", INK, mono=True))
-            body.append(F.txt(hx, 178, s["redex"], size, "start", AMBER, mono=True, bold=True))
-            body.append(F.txt(hx + len(s["redex"]) * cw, 178, text[idx + len(s["redex"]):],
-                              size, "start", INK, mono=True))
+        per = int((W - 60) / cw)
+        lines = wrap_text(s["text"], per)
+        redex = s["redex"]
+        start = s["text"].find(redex) if redex else -1
 
-        body.append(F.txt(W / 2, 250, "rewrite the highlighted part", 14, "middle", GRAY))
-        body.append(F.line(W / 2, 266, W / 2, 306, GREEN, 2, arrow=True))
-        after = s["after"]
-        ax0 = (W - len(after) * cw) / 2
-        body.append(F.txt(ax0, 356, after, size, "start", GREEN, mono=True, bold=True))
+        block_w = max(len(t) for t, _ in lines) * cw
+        x_block = (W - block_w) / 2
+        y = 196 - (len(lines) - 1) * 17
+        for text, off in lines:
+            if start >= 0:
+                a = max(start - off, 0)
+                b = min(start + len(redex) - off, len(text))
+                if b > a:
+                    body.append(F.rect(x_block + a * cw - 3, y - size + 2,
+                                       (b - a) * cw + 6, size + 8,
+                                       AMBER_W, AMBER, 1.4, rx=3))
+            body.append(F.txt(x_block, y, text, size, "start", INK, mono=True))
+            y += size + 12
 
-        body.append(F.txt(W / 2, 418, s["rule"], 17, "middle", GRAY, italic=True))
-        caption(body, "One rewrite. The expression is the state: nothing is stored anywhere.",
-                y=440, size=17)
+        caption(body, s["rule"], y=276, size=17)
         save("fig-s-%02d.svg" % i, body, h=PH)
 
 

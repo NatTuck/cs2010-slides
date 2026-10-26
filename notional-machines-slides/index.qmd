@@ -429,7 +429,7 @@ That is 90 seconds and it is the only new syntax in the lecture.
 
 ## The State Is the Program {.smaller}
 
-::: {.steps style="height:600px"}
+::: {.steps style="height:450px"}
 
 ![](figs/fig-s-01.svg)
 
@@ -449,25 +449,92 @@ That is 90 seconds and it is the only new syntax in the lecture.
 
 ![](figs/fig-s-09.svg){.fragment}
 
+![](figs/fig-s-10.svg){.fragment}
+
+![](figs/fig-s-11.svg){.fragment}
+
+![](figs/fig-s-12.svg){.fragment}
+
+![](figs/fig-s-13.svg){.fragment}
+
+![](figs/fig-s-14.svg){.fragment}
+
+![](figs/fig-s-15.svg){.fragment}
+
+![](figs/fig-s-16.svg){.fragment}
+
+![](figs/fig-s-17.svg){.fragment}
+
+![](figs/fig-s-18.svg){.fragment}
+
+![](figs/fig-s-19.svg){.fragment}
+
+![](figs/fig-s-20.svg){.fragment}
+
+![](figs/fig-s-21.svg){.fragment}
+
+![](figs/fig-s-22.svg){.fragment}
+
+![](figs/fig-s-23.svg){.fragment}
+
+![](figs/fig-s-24.svg){.fragment}
+
+![](figs/fig-s-25.svg){.fragment}
+
+![](figs/fig-s-26.svg){.fragment}
+
+![](figs/fig-s-27.svg){.fragment}
+
+![](figs/fig-s-28.svg){.fragment}
+
+![](figs/fig-s-29.svg){.fragment}
+
+![](figs/fig-s-30.svg){.fragment}
+
+![](figs/fig-s-31.svg){.fragment}
+
+![](figs/fig-s-32.svg){.fragment}
+
+![](figs/fig-s-33.svg){.fragment}
+
+![](figs/fig-s-34.svg){.fragment}
+
+![](figs/fig-s-35.svg){.fragment}
+
+![](figs/fig-s-36.svg){.fragment}
+
+![](figs/fig-s-37.svg){.fragment}
+
+![](figs/fig-s-38.svg){.fragment}
+
+![](figs/fig-s-39.svg){.fragment}
+
+![](figs/fig-s-40.svg){.fragment}
+
+![](figs/fig-s-41.svg){.fragment}
+
+![](figs/fig-s-42.svg){.fragment}
+
 :::
 
 ::: {.notes}
-Look at what the state is now: the program text. There are no registers and no
-memory cells on this panel, because there is nothing to keep — the expression
-*is* the thing that changes.
+This is the whole evaluation, one rewrite per click -- forty-two of them, and
+nothing is collapsed. Every clause test, every `car` and `cdr`, and both
+occurrences of `(car xs)` get their own step, because that is what the machine
+actually does.
 
-Each frame highlights the subexpression that is about to be rewritten, then
-shows what it becomes. That is the whole evaluator: pick a subexpression,
-replace it by its value, repeat. Leftmost-innermost, so the innermost expression
-on the left goes first.
+Read the highlight: it shows the part of the text that is about to change.
 
-Read the highlights down the sequence: `(sqs ...)` unfolds, then `(* 2 2)`
-becomes 4, then the next `(sqs ...)` unfolds. The sum is built by the expression
-growing and then collapsing — nothing is ever stored.
+Three things to point at as they go by. First, when a test comes back `#f` the
+whole clause vanishes from the text -- you watch the untaken branch disappear,
+which is the clearest picture of "if" anyone will get. Second, `(car xs)`
+appears twice in the body, so it is evaluated twice: nothing is cached and
+nothing is remembered between steps. Third, the expression grows on the way
+down the recursion and collapses on the way back up, and at no point is
+anything stored -- there is no memory in this machine, only the program text.
 
-A literal trace would also show the `cond` clauses being tested one at a time.
-We skip those because they are four uninteresting rewrites per element; say so,
-so nobody thinks the panel is hiding a trick.
+If the room gets restless, click faster rather than skipping frames. The shape
+of the trace is the lesson.
 :::
 
 ## This Is Not What the Computer Does {.smaller}

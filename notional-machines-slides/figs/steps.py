@@ -609,58 +609,121 @@ def c_steps():
     return out
 
 
+SCHEME_SRC = """
+(define (sqs xs)
+  (cond ((null? xs) 0)
+        ((even? (car xs)) (+ (* (car xs) (car xs)) (sqs (cdr xs))))
+        (else (sqs (cdr xs)))))
+"""
+
+
+def _sx_tokens(s):
+    return s.replace("(", " ( ").replace(")", " ) ").split()
+
+
+def _sx_parse(t, i=0):
+    if t[i] == "(":
+        out, i = [], i + 1
+        while t[i] != ")":
+            node, i = _sx_parse(t, i)
+            out.append(node)
+        return out, i + 1
+    return t[i], i + 1
+
+
+_SX_DEF, _ = _sx_parse(_sx_tokens(SCHEME_SRC), 0)
+_SX_PARAM = _SX_DEF[1][1]
+_SX_BODY = _SX_DEF[2]
+
+
+def _sx_render(t):
+    """Scheme's own printing: a quoted list shows as '(1 2 3 4)."""
+    if not isinstance(t, list):
+        return str(t)
+    if t and t[0] == "quote":
+        return "'(" + " ".join(_sx_render(x) for x in t[1]) + ")"
+    return "(" + " ".join(_sx_render(x) for x in t) + ")"
+
+
+def _sx_val(t):
+    return not isinstance(t, list) or (t and t[0] == "quote")
+
+
+def _sx_sub(t, name, v):
+    if isinstance(t, list):
+        return [_sx_sub(x, name, v) for x in t]
+    return v if t == name else t
+
+
+def _sx_step(t):
+    """One rewrite, leftmost-innermost.
+
+    Returns (new_tree, rule, node_rewritten) or None.  The node is returned so
+    the panel can highlight exactly the part of the text that changes.
+    """
+    if not isinstance(t, list) or not t:
+        return None
+    head = t[0]
+
+    if head == "cond":
+        clause, test = t[1], t[1][0]
+        if _sx_val(test):
+            if test in ("else", "#t"):
+                return clause[1], "the test is true, so take this clause's body", t
+            rest = t[2:]
+            if not rest:
+                return None
+            return ["cond"] + rest, "the test is false, so drop this clause", t
+        got = _sx_step(test)
+        if got:
+            new, rule, _ = got
+            return ["cond", [new] + clause[1:]] + t[2:], rule, test
+        return None
+
+    for k in range(1, len(t)):
+        got = _sx_step(t[k])
+        if got:
+            new, rule, _ = got
+            return t[:k] + [new] + t[k + 1:], rule, t[k]
+
+    if head == "sqs":
+        return _sx_sub(_SX_BODY, _SX_PARAM, t[1]), \
+               "substitute the argument into the body", t
+    if head == "null?":
+        return ("#t" if t[1] == ["quote", []] else "#f"), "is the list empty?", t
+    if head == "even?":
+        return ("#t" if int(t[1]) % 2 == 0 else "#f"), "is it even?", t
+    if head == "car":
+        return t[1][1][0], "car takes the first element", t
+    if head == "cdr":
+        return ["quote", t[1][1][1:]], "cdr takes the rest", t
+    if head in ("+", "*"):
+        a, b = int(t[1]), int(t[2])
+        return str(a + b if head == "+" else a * b), "arithmetic", t
+    return None
+
+
 def scheme_steps():
-    """Each rewrite as (before, after, redex, rule)."""
-    steps_out = []
+    """The whole evaluation, one rewrite per frame, nothing collapsed.
 
-    def render(t):
-        if t[0] == "num":
-            return str(t[1])
-        if t[0] == "call":
-            return "(sqs %s)" % show(t[2])
-        return "(%s %s)" % (t[1], " ".join(render(a) for a in t[2]))
-
-    def is_value(t):
-        return t[0] == "num"
-
-    def unfold(t):
-        lst = t[2]
-        if not lst:
-            return ("num", 0), "(null? '()) is #t, so the answer is 0", "(sqs '())"
-        x, rest = lst[0], lst[1:]
-        if x % 2 == 0:
-            body = ("op", "+", [("op", "*", [("num", x), ("num", x)]),
-                                ("call", "sqs", rest)])
-            return body, "(even? %d) is #t, so the second clause applies" % x, "(sqs %s)" % show(lst)
-        return ("call", "sqs", rest), "(even? %d) is #f, so take the else clause" % x, "(sqs %s)" % show(lst)
-
-    def reduce1(t):
-        if t[0] == "call":
-            return unfold(t)
-        if t[0] == "op":
-            args = list(t[2])
-            for k, a in enumerate(args):
-                if not is_value(a):
-                    new, why, red = reduce1(a)
-                    args[k] = new
-                    return ("op", t[1], args), why, red
-            vals = [a[1] for a in args]
-            if t[1] == "+":
-                return ("num", sum(vals)), "the arguments are values now, so add them", render(t)
-            prod = 1
-            for v in vals:
-                prod *= v
-            return ("num", prod), "the arguments are values now, so multiply them", render(t)
-        return t, "", ""
-
-    expr = ("call", "sqs", list(XS))
-    for _ in range(64):
-        if expr[0] == "num":
+    Every clause test, every car and cdr, and both occurrences of (car xs) get
+    their own step, because that is what the machine does.  42 frames for
+    [1 2 3 4]; --check asserts the last one is 20.
+    """
+    frames = []
+    expr = ["sqs", ["quote", [str(x) for x in XS]]]
+    for _ in range(400):
+        text = _sx_render(expr)
+        if _sx_val(expr):
+            frames.append(dict(text=text, redex="", done=True,
+                               rule="nothing left to do: this is the answer"))
             break
-        new, why, red = reduce1(expr)
-        steps_out.append(dict(before=render(expr), after=render(new), redex=red, rule=why))
-        expr = new
-    return steps_out
+        got = _sx_step(expr)
+        if got is None:
+            raise RuntimeError("stuck at %s" % text)
+        expr, rule, node = got
+        frames.append(dict(text=text, redex=_sx_render(node), rule=rule, done=False))
+    return frames
 
 
 def clojure_steps():
@@ -709,7 +772,7 @@ def main():
         "python": sqs(XS),
         "machine": run_machine()[1][RESULT],
         "c": run_c()[1],
-        "scheme": run_scheme(XS)[1],
+        "scheme": int(scheme_steps()[-1]["text"]),
         "clojure": run_clojure(XS)[1],
     }
 
